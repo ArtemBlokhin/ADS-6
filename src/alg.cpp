@@ -17,7 +17,7 @@ BST<std::string> makeTree(const char* filename) {
   while (!file.eof()) {
     char Char = file.get();
     if ((Char >= 'a' && Char <= 'z') || (Char >= 'A' && Char <= 'Z')) {
-      if (Char >= 'A' && Char <= 'Z') 
+      if (Char >= 'A' && Char <= 'Z')
         Char += FromAToa;
       Word += Char;
     } else if (Word != "") {
