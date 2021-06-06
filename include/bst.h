@@ -24,40 +24,40 @@ int search(T value) {
 }
 
  private:
-Node* root;
-Node* addNode(Node* root, T value) {
-        if (root == nullptr) {
-            root = new Node;
-            root-> value = value;
-            root-> c = 1;
-            root-> left = root-> right = nullptr;
-        } else if (root-> value > value) {
-             root-> left = addNode(root-> left, value);
-        } else if (root-> value < value) {
-             root-> right = addNode(root-> right, value);
-        } else {
-             root->c++;
-        }
-        return root;
+  Node* root;
+  Node* addNode(Node* root, T value) {
+  if (root == nullptr) {
+    root = new Node;
+    root-> value = value;
+    root-> c = 1;
+    root-> left = root-> right = nullptr;
+  } else if (root-> value > value) {
+    root-> left = addNode(root-> left, value);
+  } else if (root-> value < value) {
+    root-> right = addNode(root-> right, value);
+  } else {
+    root->c++;
+  }
+  return root;
 }
 int depthTree(Node* root) {
-if (root == nullptr)
-     return 0;
-if ((root->left == nullptr) && (root->right == nullptr)) {
-     return 0;
-}
-            int lh = depthTree(root->left);
-            int rh = depthTree(root->right);
-            return (lh > rh ? lh : rh) + 1;
+  if (root == nullptr)
+    return 0;
+  if ((root->left == nullptr) && (root->right == nullptr)) {
+    return 0;
+  }
+  int lh = depthTree(root->left);
+  int rh = depthTree(root->right);
+  return (lh > rh ? lh : rh) + 1;
 }
 int searchNode(Node* root, T value) {
-if (root == nullptr)
+  if (root == nullptr)
     return 0;
-else if (root->value > value)
+  else if (root->value > value)
     return searchNode(root->left, value);
-else if (root->value < value)
+  else if (root->value < value)
     return searchNode(root->right, value);
-else
+  else
     return root->c;
 }
 };
